@@ -33,12 +33,12 @@ header {
 
 .cd-logo {
   /* logo box style */
-  background-color: #5f8ee4;
-  width: 120px;
+  background-color: #ffffff;
+  width: 72px;
 }
 @media only screen and (min-width: 1024px) {
   .cd-logo {
-    width: 180px;
+    width: 72px;
   }
 }
 

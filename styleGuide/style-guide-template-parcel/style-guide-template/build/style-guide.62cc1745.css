@@ -88,11 +88,11 @@ header {
 .cd-logo {
   /* logo box style */
   background-color: #003b66;
-  width: 120px;
+  width: 72px;
 }
 @media only screen and (min-width: 1024px) {
   .cd-logo {
-    width: 180px;
+    width: 72px;
   }
 }
 
@@ -490,6 +490,7 @@ header nav {
   position: relative;
 }
 .cd-logo img {
+  width: 100%;
   position: absolute;
   display: block;
   top: 50%;
