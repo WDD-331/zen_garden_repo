@@ -4,11 +4,12 @@
 
 // color palette - these colors will be the color swatches of the Colors section
 
-$color-1: #5f8ee4; // Cornflower Blue - Action color
-$color-2: #19191a; // Dark Blue
-$color-3: #e4655f; // Red
-$color-4: #e6e6e6; // light grey
-$color-5: #ffffff; // white
+ 
+$color-1: #003b66; 
+$color-2: #0d72a1; 
+$color-3: #bb916c; 
+$color-4: #000000;
+$color-5: #ffffff; 
 
 // additional colors
 
@@ -58,12 +59,13 @@ header {
 .cd-logo {
   /* logo box style */
   background-color: $color-1;
-  width: 120px;
+  width: 72px;
 
   @include MQ(M) {
-    width: 180px;
+    width: 72px;
   }
 }
+
 
 .cd-main-nav {
   /* main navigation background color - full screen on small devices */
