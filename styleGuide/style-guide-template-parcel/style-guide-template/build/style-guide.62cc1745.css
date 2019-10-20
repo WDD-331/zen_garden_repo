@@ -54,6 +54,67 @@ table {
 
 /* -------------------------------- 
 
+xTypography 
+
+-------------------------------- */
+h1,
+h2 {
+  font-family: "Josefin Slab", cursive;
+  color: #0d72a1;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 0.4em;
+}
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1em 0;
+}
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+    margin: 1em 0 1.4em;
+  }
+}
+
+section > h2::before {
+  /* number before each section title */
+  color: black;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #3eb7ef;
+}
+p a {
+  color: #003b66;
+  text-decoration: underline;
+}
+@media only screen and (min-width: 768px) {
+  p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+}
+
+/* -------------------------------- 
+
 xBackground 
 
 -------------------------------- */
@@ -172,62 +233,6 @@ main > h1 {
 xTypography 
 
 -------------------------------- */
-h1,
-h2 {
-  font-family: "Josefin Slab", cursive;
-  color: #0d72a1;
-}
-
-h1 {
-  font-size: 2.4rem;
-  font-weight: 300;
-  line-height: 1.2;
-  margin: 0 0 0.4em;
-}
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 3.2rem;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  h1 {
-    font-size: 4rem;
-  }
-}
-
-h2 {
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 1em 0;
-}
-@media only screen and (min-width: 768px) {
-  h2 {
-    font-size: 1.8rem;
-    margin: 1em 0 1.4em;
-  }
-}
-
-section > h2::before {
-  /* number before each section title */
-  color: black;
-}
-
-p {
-  font-size: 1.4rem;
-  line-height: 1.4;
-  color: #3eb7ef;
-}
-p a {
-  color: #003b66;
-  text-decoration: underline;
-}
-@media only screen and (min-width: 768px) {
-  p {
-    font-size: 1.6rem;
-    line-height: 1.6;
-  }
-}
-
 /* -------------------------------- 
 
 xButtons 
