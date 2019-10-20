@@ -119,6 +119,12 @@ p a {
   color: #bb916c;
 }
 
+#navigation .cd-secondary-nav a {
+  font-family: "Josefin Slab", cursive;
+  font-size: 0.6em;
+  color: #bb916c;
+}
+
 /* -------------------------------- 
 
 xBackground 
