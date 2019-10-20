@@ -1,11 +1,11 @@
-.cd-primary-nav a {
+#navigation .cd-primary-nav a {
     font-style: bold;
     font-size: 1.2em;
     color: $color-3;
 }
 
-.cd-secondary-nav a {
+#navigation .cd-secondary-nav a {
     font-family: $secondary-font;
-    font-size: .8em;
+    font-size: .6em;
     color: $color-3;
 }
