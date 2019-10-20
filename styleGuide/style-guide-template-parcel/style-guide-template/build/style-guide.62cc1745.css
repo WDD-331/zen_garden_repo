@@ -116,12 +116,12 @@ p a {
 .cd-primary-nav li {
   font-style: bold;
   font-size: 1.2em;
-  color: #bb916c;
+  color: #003b66;
 }
 
 #navigation .cd-secondary-nav a {
   font-family: "Josefin Slab", cursive;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #bb916c;
 }
 
