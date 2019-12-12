@@ -119,7 +119,7 @@ p a {
   color: #003b66;
 }
 
-#navigation .cd-secondary-nav a {
+#navigation .cd-secondary-nav li {
   font-family: "Josefin Slab", cursive;
   font-size: 1em;
   color: #bb916c;
@@ -386,7 +386,7 @@ input[type=checkbox] {
 .radio-label::after,
 .checkbox-label::after {
   left: 3px;
-  background: url("icon-check.b3fa7148.svg") no-repeat center center;
+  background: url("/icon-check.b3fa7148.svg") no-repeat center center;
   display: none;
 }
 
@@ -425,7 +425,7 @@ input[type=checkbox]:checked + label::after {
   display: block;
   width: 16px;
   height: 16px;
-  background: url("icon-select.65729cd7.svg") no-repeat center center;
+  background: url("/icon-select.65729cd7.svg") no-repeat center center;
   pointer-events: none;
 }
 
@@ -679,7 +679,7 @@ header nav {
   right: 0;
   height: 100%;
   width: 80px;
-  background-image: url("icon-download.b20aadac.svg");
+  background-image: url("/icon-download.b20aadac.svg");
   background-position: center center;
   background-repeat: no-repeat;
   display: none;
@@ -1017,28 +1017,28 @@ section:nth-of-type(10) h2::before {
   margin: 1em;
 }
 .cd-icons .cd-icon-1 {
-  background-image: url("icon-1.de09c112.svg");
+  background-image: url("/icon-1.de09c112.svg");
 }
 .cd-icons .cd-icon-2 {
-  background-image: url("icon-2.153ae19e.svg");
+  background-image: url("/icon-2.153ae19e.svg");
 }
 .cd-icons .cd-icon-3 {
-  background-image: url("icon-3.255805d5.svg");
+  background-image: url("/icon-3.255805d5.svg");
 }
 .cd-icons .cd-icon-4 {
-  background-image: url("icon-4.51c8ed33.svg");
+  background-image: url("/icon-4.51c8ed33.svg");
 }
 .cd-icons .cd-icon-5 {
-  background-image: url("icon-5.b5f82357.svg");
+  background-image: url("/icon-5.b5f82357.svg");
 }
 .cd-icons .cd-icon-6 {
-  background-image: url("icon-6.7440f143.svg");
+  background-image: url("/icon-6.7440f143.svg");
 }
 .cd-icons .cd-icon-7 {
-  background-image: url("icon-7.d3ac3450.svg");
+  background-image: url("/icon-7.d3ac3450.svg");
 }
 .cd-icons .cd-icon-8 {
-  background-image: url("icon-8.3c326c9f.svg");
+  background-image: url("/icon-8.3c326c9f.svg");
 }
 
 /* xForm section - basic style */
@@ -1063,3 +1063,5 @@ section:nth-of-type(10) h2::before {
 .no-csstransitions .cd-select::after {
   display: none;
 }
+
+/*# sourceMappingURL=/style-guide.62cc1745.css.map */

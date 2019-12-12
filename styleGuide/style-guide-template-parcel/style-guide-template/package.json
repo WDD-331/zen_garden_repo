@@ -13,7 +13,7 @@
   "author": "Shane T",
   "license": "GPL-2.0",
   "devDependencies": {
-    "parcel-bundler": "^1.11.0",
+    "parcel-bundler": "^1.12.4",
     "rimraf": "^2.7.1",
     "sass": "^1.16.1"
   },

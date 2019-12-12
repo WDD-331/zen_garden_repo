@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab%7CQuicksand&display=swap");
+
+// fonts - partial created for the style guide
+$primary-font: 'Quicksand', sans-serif;
+$secondary-font: 'Josefin Slab', serif;
+
+// color palette - these colors will be the color swatches of the Colors section
+$color-1: rgba(0, 59, 102, .7); // Dark blue #003b66
+$color-2: rgba(13, 114, 161); // Blue #0d72a1
+$color-3: rgba(187, 145, 108, .5); // Tan  #bb916c
+$color-4: rgb(0, 0, 0); // black  #000000
+$color-5: rgb(255, 255, 255); // White  #ffffff
+$color-6: rgba(196, 182, 182); //anther tan color?  #c4b6b6
+
+//diamond bullet point variable
+$diamond: "\25C6";
+
+//mixin for diamond bullet
+@mixin image-style ($display: inline-block, $content: $diamond, $color: $color-4, $width: 8em, $margin-left: -1.3em) {
+    display: $display;
+    content: $diamond;
+    color: $color;
+    width: $width;
+    margin-left: $margin-left;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    background-color: $color-1;
+    position: relative;
+}
+   ul {
+    padding: 0px;
+    list-style-type: none;
+   }
+   li {
+    margin: 10px 0;
+   }
+   a {
+    text-decoration: none;
+
+    &:visited {
+        color: $color-3;
+    }
+    &:link {
+        color: #d4b95e;
+    }
+}
+   .intro {
+    background-color: $color-5;
+    font-size: 16px;
+   }
+
+   h1 {
+    font-size: 4em;
+    background-color: $color-1;
+    color: $color-5;
+    font-family: $primary-font;
+    text-transform: uppercase;
+    padding: 5px;
+   }
+   h2 {
+    font-size: 3em;
+    color: $color-1;
+    font-family: $secondary-font;
+    margin: 5px;
+   }
+   h3 {
+    font-size: 2em;
+    color: $color-5;
+    font-family: $secondary-font;
+    margin: 10px 5px;
+   }
+   p {
+    font-family: $primary-font;
+    font-size: 1em;
+    margin: 10px 5px;
+   }
+   footer {
+    width: 100%;
+    display: inline-block;
+    background-color: $color-1;
+   }
+
+   /* Summary & Main Paragraphs */
+
+   /* add logo */
+   .intro::before {
+    content: url(logo1small.png);
+    display: block;
+    width: 100%;
+    padding-left: 33.3%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: $color-6;
+} 
+
+.logo {
+    
+}
+.logo:hover {
+    
+}
+
+   .summary {
+    font-size: 1.2em;
+    font-style: italic;
+   }
+   .preamble, .participation, .requirements {
+    background-color: $color-2;
+    color: $color-5;
+   }
+   .explanation, .benefits {
+    background-color: $color-3;
+    color: $color-5;
+   }
+
+   //sidebar and bottom
+   .design-archives {
+    float: right;
+    width: 48%;
+    padding-left: 2%;
+    background-color: $color-1;
+   }
+   .zen-resources {
+    float: right;
+    width: 48%;
+    background-color: $color-1;
+    padding-left: 2%;
+   }
+   .design-selection {
+    float: left;
+    width: 48%;
+    background-color: $color-1;
+    padding-left: 2%;
+    color: $color-5;
+   }
+   .zen-resources li, .designer-name, .next, .viewall {
+    font-family: $primary-font;
+    }
+   .select, .archives, .resources {
+    font-size: 1.2em;
+    color: $color-5;
+   }
+   .design-name, .select, .archives, .resources, abbr {
+    text-transform: uppercase;
+    }
+
+//setting grid framework using .page-wrapper as the parent container
+@media only screen and (min-width: 650px) {
+    
+    //get rid of flex logo display
+    .intro::before {
+        display: none;
+    }
+    
+    .page-wrapper {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 4fr 1fr 2fr 1fr;
+        background-color: $color-6;
+        position: relative;
+        
+        > #zen-intro {
+            
+            grid-column: 2;
+            grid-row: 1;
+                        
+            h1, h2, h3, p {
+                margin: 0;
+            }
+            
+        }
+        
+        > #zen-supporting {
+            grid-column: 2;
+            grid-row: 2;
+            
+            div h3, div p {
+                margin: 0;
+            }
+        }
+        
+        aside::before{
+            content: url(logo.svg); 
+        }
+        > aside {
+            grid-column: 4;
+            grid-row: 2;
+            
+            content:nth-of-type(1){
+                background-color: aqua;
+            }
+            
+            .design-selection {
+                width: 100%;
+                padding: 0;
+            }
+
+            .design-archives, .zen-resources {
+                padding: 0;
+                width: 100%;
+            }
+            
+            
+        }
+        
+        /* add diamond shape bullet points */
+
+        .preamble h3::before, .explanation h3::before, .participation h3::before, .benefits h3::before, .requirements h3::before {
+            @include image-style ()
+        }
+
+    }
+    
+    
+}
