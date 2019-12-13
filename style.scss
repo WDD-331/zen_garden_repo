@@ -1,36 +1,49 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab%7CQuicksand&display=swap");
-
 // fonts - partial created for the style guide
 $primary-font: 'Quicksand', sans-serif;
 $secondary-font: 'Josefin Slab', serif;
-
 // color palette - these colors will be the color swatches of the Colors section
 $color-1: rgba(0, 59, 102, .7); // Dark blue #003b66
-$color-2: rgba(13, 114, 161); // Blue #0d72a1
+$color-2: rgba(13, 114, 161, ); // Blue #0d72a1
 $color-3: rgba(187, 145, 108, .5); // Tan  #bb916c
 $color-4: rgb(0, 0, 0); // black  #000000
 $color-5: rgb(255, 255, 255); // White  #ffffff
-$color-6: rgba(196, 182, 182); //anther tan color?  #c4b6b6
-
+$color-6: rgba(196, 182, 182, .2); //background color  #c4b6b6
 //diamond bullet point variable
 $diamond: "\25C6";
-
 //mixin for diamond bullet
-@mixin image-style ($display: inline-block, $content: $diamond, $color: $color-4, $width: 8em, $margin-left: -1.3em) {
-    display: $display;
-    content: $diamond;
-    color: $color;
-    width: $width;
-    margin-left: $margin-left;
+@mixin diamond ($display: inline-block, $content: $diamond, $color: $color-1, $width: 1.3em, $margin-left: -1.3em) {
+  display: $display;
+  content: $diamond;
+  color: $color;
+  width: $width;
+  margin-left: $margin-left;
+  animation: rotate-diamond 8s linear infinite;
 }
-
+@keyframes rotate-diamond {
+  0% {color: $color-1;}
+  25% {
+    color: $color-2;
+    }
+  50% {
+    color: $color-3;
+    }
+  75% {
+    color: $color-5;
+    }
+  100% {
+    color: $color-1;
+    transform: rotate(360deg);
+    transform-origin: 30% 30%;
+  }
+}
 body {
     width: 100%;
     display: flex;
     background-color: $color-1;
-    position: relative;
-}
+   }
    ul {
+    margin: 2%;
     padding: 0px;
     list-style-type: none;
    }
@@ -39,7 +52,6 @@ body {
    }
    a {
     text-decoration: none;
-
     &:visited {
         color: $color-3;
     }
@@ -50,8 +62,11 @@ body {
    .intro {
     background-color: $color-5;
     font-size: 16px;
+    position: relative;
+       header h2 {
+           color: $color-2;
+       }
    }
-
    h1 {
     font-size: 4em;
     background-color: $color-1;
@@ -76,36 +91,58 @@ body {
     font-family: $primary-font;
     font-size: 1em;
     margin: 10px 5px;
+    padding-right: 5px;
+    text-shadow:2px 2px 2px black;
    }
    footer {
     width: 100%;
-    display: inline-block;
-    background-color: $color-1;
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    background-color: $color-6;
+    font-size: 1.2em;
+   }
+   footer a {
+    &:visited {
+      color: $color-4;
+    }
+    &:link {
+      color: $color-1;
+    }
+} 
+   
+   [role=article] {
+     padding: 5px;
    }
 
+#zen-intro {
+     background-image: url(snowflake640.jpg);
+   }
    /* Summary & Main Paragraphs */
-
    /* add logo */
-   .intro::before {
-    content: url(logo1small.png);
+    //keyframe for logo rotation 
+@keyframes spin {
+  0% {
+    
+    transform: rotate(0);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    .intro::before {
+    content: url(SeasonsLogo-01.svg);
     display: block;
-    width: 100%;
-    padding-left: 33.3%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    background-color: $color-6;
-} 
-
-.logo {
-    
-}
-.logo:hover {
-    
-}
-
+    width: 50%;
+    margin: auto;
+    animation: spin 16s linear infinite; 
+  } 
    .summary {
     font-size: 1.2em;
     font-style: italic;
+    color: $color-5;
    }
    .preamble, .participation, .requirements {
     background-color: $color-2;
@@ -115,7 +152,6 @@ body {
     background-color: $color-3;
     color: $color-5;
    }
-
    //sidebar and bottom
    .design-archives {
     float: right;
@@ -138,81 +174,105 @@ body {
    }
    .zen-resources li, .designer-name, .next, .viewall {
     font-family: $primary-font;
-    }
+}
    .select, .archives, .resources {
     font-size: 1.2em;
     color: $color-5;
    }
    .design-name, .select, .archives, .resources, abbr {
     text-transform: uppercase;
-    }
-
+  }
+  .sidebar {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
 //setting grid framework using .page-wrapper as the parent container
 @media only screen and (min-width: 650px) {
+//get rid of flex logo display
     
-    //get rid of flex logo display
-    .intro::before {
-        display: none;
-    }
-    
-    .page-wrapper {
-        display: grid;
-        width: 100%;
-        grid-template-columns: 1fr 4fr 1fr 2fr 1fr;
-        background-color: $color-6;
+    body {
+        background-image:url(winter-1891595.svg);
+        background-repeat: no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
         position: relative;
-        
-        > #zen-intro {
-            
-            grid-column: 2;
-            grid-row: 1;
-                        
-            h1, h2, h3, p {
-                margin: 0;
-            }
-            
-        }
-        
-        > #zen-supporting {
-            grid-column: 2;
-            grid-row: 2;
-            
-            div h3, div p {
-                margin: 0;
-            }
-        }
-        
-        aside::before{
-            content: url(logo.svg); 
-        }
-        > aside {
-            grid-column: 4;
-            grid-row: 2;
-            
-            content:nth-of-type(1){
-                background-color: aqua;
-            }
-            
-            .design-selection {
-                width: 100%;
-                padding: 0;
-            }
-
-            .design-archives, .zen-resources {
-                padding: 0;
-                width: 100%;
-            }
-            
-            
-        }
-        
-        /* add diamond shape bullet points */
-
-        .preamble h3::before, .explanation h3::before, .participation h3::before, .benefits h3::before, .requirements h3::before {
-            @include image-style ()
-        }
-
+        z-index: -2;
     }
-    
-    
+    .intro::before {
+    display: none;
+  }
+.page-wrapper {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 4% 4% 60% 4% 24% 4fr;
+    grid-template-rows: auto;
+    background-color: $color-6;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+.intro {
+    grid-column: 3;
+    grid-row: 1;
+}
+.supporting {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  /* add logo above the sidebar */
+  .sidebar::before {
+    content: url(SeasonsLogo-01.svg);
+    display: block;
+    width: 100%;
+    animation: spin 16s linear infinite;
+    z-index: 2;
+  }
+  @keyframes spin {
+    0% {
+        content: url(SeasonsLogo-01.svg);
+        transform: rotateX(0);
+      }
+     
+      25% {
+          content: url(SeasonsLogo-01.svg);
+      }
+      50% {
+          content: url(SeasonsLogo-04.svg);
+      }
+      75% {
+          content: url(SeasonsLogo-04.svg);
+      }
+      100% {
+          content: url(SeasonsLogo-04.svg);
+        transform: rotateX(360deg);
+      }
+  }
+.sidebar {
+    grid-column: 5;
+    grid-row: 1 / span 2;
+}
+.design-archives {
+    width: 100%;
+    grid-column: 5;
+    grid-row: 3;
+  }
+  .zen-resources {
+    width: 100%;
+    grid-column: 5;
+    grid-row: 4; 
+  } 
+  /* remove flex styling from large view sidebar items */
+  .design-selection {
+    width: 100%;
+    padding: 0;
+  }
+  .design-archives, .zen-resources {
+    padding: 0;
+  }
+  /* add diamond shape bullet points */
+  .preamble h3::before, .explanation h3::before, .participation h3::before, .benefits h3::before, .requirements h3::before {
+      @include diamond ()
+  }
 }

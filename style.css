@@ -1,13 +1,32 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab%7CQuicksand&display=swap");
+@keyframes rotate-diamond {
+  0% {
+    color: rgba(0, 59, 102, 0.7);
+  }
+  25% {
+    color: #0d72a1;
+  }
+  50% {
+    color: rgba(187, 145, 108, 0.5);
+  }
+  75% {
+    color: white;
+  }
+  100% {
+    color: rgba(0, 59, 102, 0.7);
+    transform: rotate(360deg);
+    transform-origin: 30% 30%;
+  }
+}
 body {
   width: 100%;
   display: flex;
   background-color: rgba(0, 59, 102, 0.7);
-  position: relative;
 }
 
 ul {
+  margin: 2%;
   padding: 0px;
   list-style-type: none;
 }
@@ -29,6 +48,10 @@ a:link {
 .intro {
   background-color: white;
   font-size: 16px;
+  position: relative;
+}
+.intro header h2 {
+  color: #0d72a1;
 }
 
 h1 {
@@ -58,29 +81,56 @@ p {
   font-family: "Quicksand", sans-serif;
   font-size: 1em;
   margin: 10px 5px;
+  padding-right: 5px;
+  text-shadow: 2px 2px 2px black;
 }
 
 footer {
   width: 100%;
-  display: inline-block;
-  background-color: rgba(0, 59, 102, 0.7);
+  display: inline-flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  background-color: rgba(196, 182, 182, 0.2);
+  font-size: 1.2em;
+}
+
+footer a:visited {
+  color: black;
+}
+footer a:link {
+  color: rgba(0, 59, 102, 0.7);
+}
+
+[role=article] {
+  padding: 5px;
+}
+
+#zen-intro {
+  background-image: url(snowflake640.jpg);
 }
 
 /* Summary & Main Paragraphs */
 /* add logo */
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .intro::before {
-  content: url(logo1small.png);
+  content: url(SeasonsLogo-01.svg);
   display: block;
-  width: 100%;
-  padding-left: 33.3%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  background-color: #c4b6b6;
+  width: 50%;
+  margin: auto;
+  animation: spin 16s linear infinite;
 }
 
 .summary {
   font-size: 1.2em;
   font-style: italic;
+  color: white;
 }
 
 .preamble, .participation, .requirements {
@@ -128,152 +178,112 @@ footer {
   text-transform: uppercase;
 }
 
+.sidebar {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
 @media only screen and (min-width: 650px) {
-  .page-wrapper {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 0.5fr 4fr 0.5fr 2fr 0.5fr;
-    grid-template-rows: repeat 18, 1fr;
-    background-color: #c4b6b6;
+  body {
+    background-image: url(winter-1891595.svg);
+    background-repeat: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    z-index: -2;
   }
 
   .intro::before {
     display: none;
   }
 
-  .intro {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 7;
-  }
-  .intro h1, .intro h2, .intro h3, .intro p {
-    margin: 0;
-  }
-  .intro header {
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 3;
-  }
-  .intro .summary {
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 4;
-  }
-  .intro .preamble {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 7;
+  .page-wrapper {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 4% 4% 60% 4% 24% 4fr;
+    grid-template-rows: auto;
+    background-color: rgba(196, 182, 182, 0.2);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
   }
 
-  .main {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 7;
-    grid-row-end: 16;
+  .intro {
+    grid-column: 3;
+    grid-row: 1;
   }
-  .main div h3, .main div p {
-    margin: 0;
+
+  .supporting {
+    grid-column: 3;
+    grid-row: 2;
   }
 
   /* add logo above the sidebar */
-  /*  .sidebar::before {
-            grid-column-start: 4;
-            grid-column-end: 5;
-            grid-row-start: 2;
-            grid-row-end: 6;
-            content:  url("logo.svg");
-            display: block;
-            width: 100%;
-            height: 100%;
-    }*/
+  .sidebar::before {
+    content: url(SeasonsLogo-01.svg);
+    display: block;
+    width: 100%;
+    animation: spin 16s linear infinite;
+    z-index: 2;
+  }
+
+  @keyframes spin {
+    0% {
+      content: url(SeasonsLogo-01.svg);
+      transform: rotateX(0);
+    }
+    25% {
+      content: url(SeasonsLogo-01.svg);
+    }
+    50% {
+      content: url(SeasonsLogo-04.svg);
+    }
+    75% {
+      content: url(SeasonsLogo-04.svg);
+    }
+    100% {
+      content: url(SeasonsLogo-04.svg);
+      transform: rotateX(360deg);
+    }
+  }
   .sidebar {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 7;
-    grid-row-end: 16;
+    grid-column: 5;
+    grid-row: 1/span 2;
   }
-  .sidebar .wrapper {
-    /*   grid-column-start: 4;
-       grid-column-end: 5;
-       grid-row-start: 5;
-       grid-row-end: 9; */
+
+  .design-archives {
     width: 100%;
+    grid-column: 5;
+    grid-row: 3;
   }
-  .sidebar .wrapper .design-selection {
-    /*         grid-column-start: 4;
-             grid-column-end: 5;
-             grid-row-start: 5;
-             grid-row-end: 9;*/
+
+  .zen-resources {
     width: 100%;
+    grid-column: 5;
+    grid-row: 4;
   }
-  .sidebar .wrapper .design-archives {
-    /*     grid-column-start: 4;
-         grid-column-end: 5;
-         grid-row-start: 9;
-         grid-row-end: 10;*/
+
+  /* remove flex styling from large view sidebar items */
+  .design-selection {
     width: 100%;
+    padding: 0;
   }
-  .sidebar .wrapper .zen-resources {
-    /*        grid-column-start: 4;
-            grid-column-end: 5;
-            grid-row-start: 10;
-            grid-row-end: 12;*/
-    width: 100%;
+
+  .design-archives, .zen-resources {
+    padding: 0;
   }
-}
-/**  remove flex styling from large view sidebar items **/
-.design-selection {
-  width: 100%;
-  padding: 0;
-}
 
-.design-archives, .zen-resources {
-  padding: 0;
-}
-
-/* add diamond shape bullet points */
-.preamble h3::before {
-  display: inline-block;
-  content: "◆";
-  color: black;
-  width: 8em;
-  margin-left: -1.3em;
-}
-
-.explanation h3::before {
-  display: inline-block;
-  content: "◆";
-  color: black;
-  width: 8em;
-  margin-left: -1.3em;
-}
-
-.participation h3::before {
-  display: inline-block;
-  content: "◆";
-  color: black;
-  width: 8em;
-  margin-left: -1.3em;
-}
-
-.benefits h3::before {
-  display: inline-block;
-  content: "◆";
-  color: black;
-  width: 8em;
-  margin-left: -1.3em;
-}
-
-.requirements h3::before {
-  display: inline-block;
-  content: "◆";
-  color: black;
-  width: 8em;
-  margin-left: -1.3em;
+  /* add diamond shape bullet points */
+  .preamble h3::before, .explanation h3::before, .participation h3::before, .benefits h3::before, .requirements h3::before {
+    display: inline-block;
+    content: "◆";
+    color: rgba(0, 59, 102, 0.7);
+    width: 1.3em;
+    margin-left: -1.3em;
+    animation: rotate-diamond 8s linear infinite;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
